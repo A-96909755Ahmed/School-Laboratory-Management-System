@@ -1,0 +1,1384 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+
+
+<!-- Mirrored from codervent.com/matoxi/demo/offcanvas-menu/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Dec 2023 22:20:28 GMT -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab Booking | Dashboard</title>
+  <!--favicon-->
+	<link rel="icon" href="assets/images/favicon-32x32.png" type="image/png">
+
+  <!--plugins-->
+  <link href="{{ url_for('static', filename='assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/plugins/metismenu/metisMenu.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/plugins/metismenu/mm-vertical.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/plugins/npm/flatpickr/dist/flatpickr.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/notifications/css/lobibox.min.css') }}">
+  <!--bootstrap css-->
+  <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/icons.min.css') }}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
+  <!--main css-->
+  <link href="{{ url_for('static', filename='assets/css/bootstrap-extended.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='sass/main.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='sass/dark-theme.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='sass/semi-dark.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='sass/bordered-theme.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='sass/responsive.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!--start header-->
+  <header class="top-header">
+    <nav class="navbar navbar-expand align-items-center justify-content-between gap-3">
+      <div class="btn-toggle">
+        <a href="#offcanvasPrimaryMenu" data-bs-toggle="offcanvas"><i class="material-icons-outlined">menu</i></a>
+      </div>
+      <div class="search-bar w-50 d-none">
+        <div class="position-relative">
+          <input class="form-control rounded-5 px-5 search-control d-lg-block d-none" type="text" placeholder="Search">
+          <span class="material-icons-outlined position-absolute d-lg-block d-none ms-3 translate-middle-y start-0 top-50">search</span>
+          <span class="material-icons-outlined position-absolute me-3 translate-middle-y end-0 top-50 search-close">close</span>
+          <div class="search-popup p-3">
+            <div class="card rounded-4 overflow-hidden">
+              <div class="card-header d-lg-none">
+                <div class="position-relative">
+                  <input class="form-control rounded-5 px-5 mobile-search-control" type="text" placeholder="Search">
+                  <span class="material-icons-outlined position-absolute ms-3 translate-middle-y start-0 top-50">search</span>
+                  <span class="material-icons-outlined position-absolute me-3 translate-middle-y end-0 top-50 mobile-search-close">close</span>
+                 </div>
+              </div>
+              <div class="card-body search-content">
+                <p class="search-title">Recent Searches</p>
+                <div class="d-flex align-items-start flex-wrap gap-2 kewords-wrapper">
+                  <a href="javascript:;" class="kewords"><span>Angular Template</span><i
+                      class="material-icons-outlined fs-6">search</i></a>
+                  <a href="javascript:;" class="kewords"><span>Dashboard</span><i
+                      class="material-icons-outlined fs-6">search</i></a>
+                  <a href="javascript:;" class="kewords"><span>Admin Template</span><i
+                      class="material-icons-outlined fs-6">search</i></a>
+                  <a href="javascript:;" class="kewords"><span>Bootstrap 5 Admin</span><i
+                      class="material-icons-outlined fs-6">search</i></a>
+                  <a href="javascript:;" class="kewords"><span>Html eCommerce</span><i
+                      class="material-icons-outlined fs-6">search</i></a>
+                  <a href="javascript:;" class="kewords"><span>Sass</span><i
+                      class="material-icons-outlined fs-6">search</i></a>
+                  <a href="javascript:;" class="kewords"><span>laravel 9</span><i
+                      class="material-icons-outlined fs-6">search</i></a>
+                </div>
+                <hr>
+                <p class="search-title">Tutorials</p>
+                <div class="search-list d-flex flex-column gap-2">
+                  <div class="search-list-item d-flex align-items-center gap-3">
+                    <div class="list-icon">
+                      <i class="material-icons-outlined fs-5">play_circle</i>
+                    </div>
+                    <div class="">
+                      <h5 class="mb-0 search-list-title ">Wordpress Tutorials</h5>
+                    </div>
+                  </div>
+                  <div class="search-list-item d-flex align-items-center gap-3">
+                    <div class="list-icon">
+                      <i class="material-icons-outlined fs-5">shopping_basket</i>
+                    </div>
+                    <div class="">
+                      <h5 class="mb-0 search-list-title">eCommerce Website Tutorials</h5>
+                    </div>
+                  </div>
+  
+                  <div class="search-list-item d-flex align-items-center gap-3">
+                    <div class="list-icon">
+                      <i class="material-icons-outlined fs-5">laptop</i>
+                    </div>
+                    <div class="">
+                      <h5 class="mb-0 search-list-title">Responsive Design</h5>
+                    </div>
+                  </div>
+                </div>
+  
+                <hr>
+                <p class="search-title">Members</p>
+  
+                <div class="search-list d-flex flex-column gap-2">
+                  <div class="search-list-item d-flex align-items-center gap-3">
+                    <div class="memmber-img">
+                      <img src="assets/images/avatars/01.png" width="32" height="32" class="rounded-circle" alt="">
+                    </div>
+                    <div class="">
+                      <h5 class="mb-0 search-list-title ">Andrew Stark</h5>
+                    </div>
+                  </div>
+  
+                  <div class="search-list-item d-flex align-items-center gap-3">
+                    <div class="memmber-img">
+                      <img src="assets/images/avatars/02.png" width="32" height="32" class="rounded-circle" alt="">
+                    </div>
+                    <div class="">
+                      <h5 class="mb-0 search-list-title ">Snetro Jhonia</h5>
+                    </div>
+                  </div>
+  
+                  <div class="search-list-item d-flex align-items-center gap-3">
+                    <div class="memmber-img">
+                      <img src="assets/images/avatars/03.png" width="32" height="32" class="rounded-circle" alt="">
+                    </div>
+                    <div class="">
+                      <h5 class="mb-0 search-list-title">Michle Clark</h5>
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+              <div class="card-footer text-center bg-transparent">
+                <a href="javascript:;" class="btn w-100">See All Search Results</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav gap-1 nav-right-links align-items-center d-none">
+        <li class="nav-item d-lg-none mobile-search-btn">
+          <a class="nav-link" href="javascript:;"><i class="material-icons-outlined">search</i></a>
+        </li>
+        <li class="nav-item dropdown dropdown-laungauge">
+          <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="avascript:;" data-bs-toggle="dropdown"><img src="assets/images/county/02.png" width="22" alt="">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img src="assets/images/county/01.png" width="20" alt=""><span class="ms-2">English</span></a>
+            </li>
+            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img src="assets/images/county/02.png" width="20" alt=""><span class="ms-2">Catalan</span></a>
+            </li>
+            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img src="assets/images/county/03.png" width="20" alt=""><span class="ms-2">French</span></a>
+            </li>
+            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img src="assets/images/county/04.png" width="20" alt=""><span class="ms-2">Belize</span></a>
+            </li>
+            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img src="assets/images/county/05.png" width="20" alt=""><span class="ms-2">Colombia</span></a>
+            </li>
+            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img src="assets/images/county/06.png" width="20" alt=""><span class="ms-2">Spanish</span></a>
+            </li>
+            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img src="assets/images/county/07.png" width="20" alt=""><span class="ms-2">Georgian</span></a>
+            </li>
+            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img src="assets/images/county/08.png" width="20" alt=""><span class="ms-2">Hindi</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" data-bs-auto-close="outside"
+            data-bs-toggle="dropdown" href="javascript:;"><i class="material-icons-outlined">notifications</i>
+            <span class="badge-notify">5</span>
+          </a>
+          <div class="dropdown-menu dropdown-notify dropdown-menu-end shadow">
+            <div class="px-3 py-1 d-flex align-items-center justify-content-between border-bottom">
+              <h5 class="notiy-title mb-0">Notifications</h5>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle dropdown-toggle-nocaret option" type="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="material-icons-outlined">
+                    more_vert
+                  </span>
+                </button>
+                <div class="dropdown-menu dropdown-option dropdown-menu-end shadow">
+                  <div><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="javascript:;"><i
+                        class="material-icons-outlined fs-6">inventory_2</i>Archive All</a></div>
+                  <div><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="javascript:;"><i
+                        class="material-icons-outlined fs-6">done_all</i>Mark all as read</a></div>
+                  <div><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="javascript:;"><i
+                        class="material-icons-outlined fs-6">mic_off</i>Disable Notifications</a></div>
+                  <div><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="javascript:;"><i
+                        class="material-icons-outlined fs-6">grade</i>What's new ?</a></div>
+                  <div>
+                    <hr class="dropdown-divider">
+                  </div>
+                  <div><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="javascript:;"><i
+                        class="material-icons-outlined fs-6">leaderboard</i>Reports</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="notify-list">
+              <div>
+                <a class="dropdown-item border-bottom py-2" href="javascript:;">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="">
+                      <img src="assets/images/avatars/01.png" class="rounded-circle" width="45" height="45" alt="">
+                    </div>
+                    <div class="">
+                      <h5 class="notify-title">Congratulations Jhon</h5>
+                      <p class="mb-0 notify-desc">Many congtars jhon. You have won the gifts.</p>
+                      <p class="mb-0 notify-time">Today</p>
+                    </div>
+                    <div class="notify-close position-absolute end-0 me-3">
+                      <i class="material-icons-outlined fs-6">close</i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div>
+                <a class="dropdown-item border-bottom py-2" href="javascript:;">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="user-wrapper bg-primary text-primary bg-opacity-10">
+                      <span>RS</span>
+                    </div>
+                    <div class="">
+                      <h5 class="notify-title">New Account Created</h5>
+                      <p class="mb-0 notify-desc">From USA an user has registered.</p>
+                      <p class="mb-0 notify-time">Yesterday</p>
+                    </div>
+                    <div class="notify-close position-absolute end-0 me-3">
+                      <i class="material-icons-outlined fs-6">close</i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div>
+                <a class="dropdown-item border-bottom py-2" href="javascript:;">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="">
+                      <img src="assets/images/apps/13.png" class="rounded-circle" width="45" height="45" alt="">
+                    </div>
+                    <div class="">
+                      <h5 class="notify-title">Payment Recived</h5>
+                      <p class="mb-0 notify-desc">New payment recived successfully</p>
+                      <p class="mb-0 notify-time">1d ago</p>
+                    </div>
+                    <div class="notify-close position-absolute end-0 me-3">
+                      <i class="material-icons-outlined fs-6">close</i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div>
+                <a class="dropdown-item border-bottom py-2" href="javascript:;">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="">
+                      <img src="assets/images/apps/14.png" class="rounded-circle" width="45" height="45" alt="">
+                    </div>
+                    <div class="">
+                      <h5 class="notify-title">New Order Recived</h5>
+                      <p class="mb-0 notify-desc">Recived new order from michle</p>
+                      <p class="mb-0 notify-time">2:15 AM</p>
+                    </div>
+                    <div class="notify-close position-absolute end-0 me-3">
+                      <i class="material-icons-outlined fs-6">close</i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div>
+                <a class="dropdown-item border-bottom py-2" href="javascript:;">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="">
+                      <img src="assets/images/avatars/06.png" class="rounded-circle" width="45" height="45" alt="">
+                    </div>
+                    <div class="">
+                      <h5 class="notify-title">Congratulations Jhon</h5>
+                      <p class="mb-0 notify-desc">Many congtars jhon. You have won the gifts.</p>
+                      <p class="mb-0 notify-time">Today</p>
+                    </div>
+                    <div class="notify-close position-absolute end-0 me-3">
+                      <i class="material-icons-outlined fs-6">close</i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div>
+                <a class="dropdown-item py-2" href="javascript:;">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="user-wrapper bg-danger text-danger bg-opacity-10">
+                      <span>PK</span>
+                    </div>
+                    <div class="">
+                      <h5 class="notify-title">New Account Created</h5>
+                      <p class="mb-0 notify-desc">From USA an user has registered.</p>
+                      <p class="mb-0 notify-time">Yesterday</p>
+                    </div>
+                    <div class="notify-close position-absolute end-0 me-3">
+                      <i class="material-icons-outlined fs-6">close</i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item d-none">
+          <a class="nav-link position-relative" data-bs-toggle="offcanvas" href="#offcanvasCart"><i
+              class="material-icons-outlined">shopping_cart</i>
+            <span class="badge-notify bg-dark">8</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!--end top header-->
+
+  <!--start mini sidebar-->
+  <aside class="mini-sidebar d-flex align-items-center flex-column justify-content-between">
+    <div class="user">
+      <a href="#offcanvasUserDetails" data-bs-toggle="offcanvas" class="user-icon">
+        <i class="material-icons-outlined">account_circle</i>
+      </a>
+    </div>
+    <div class="quick-menu">
+      <nav class="nav flex-column gap-1">
+        <a class="nav-link" href="/dashboard"><i class="material-icons-outlined">home</i></a>
+      </nav>
+    </div>
+    <div class="mini-footer dark-mode">
+      <a href="javascript:;" class="footer-icon dark-mode-icon">
+        <i class="material-icons-outlined">dark_mode</i>  
+      </a>
+    </div>
+  </aside>
+  <!--end mini sidebar-->
+
+
+  <!--start main wrapper-->
+  <main class="main-wrapper">
+    <div class="main-content">
+      <!--breadcrumb-->
+      <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="breadcrumb-title pe-3">Dashboard</div>
+        <div class="ps-3">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+              <li class="breadcrumb-itemc"><i class="mdi mdi-home"></i>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Home</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="ms-auto">
+          {% if user["type"] == 1 %}
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addReserveModal"><i class="mdi mdi-plus"></i> Add Reserve</button>
+            </div>
+          {% elif user["type"] == 2 %}
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editLabModal"><i class="mdi mdi-pencil"></i> Edit Lab Status</button>
+            </div>
+          {% elif user["type"] == 0 %}
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="mdi mdi-account-plus"></i> Add User</button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addToolModal"><i class="mdi mdi-flask-empty-plus"></i> Add Tool</button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addWorkingTimeModal"><i class="mdi mdi-calendar-plus"></i> Add Working Time</button>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {% if user["type"] == 1 %}
+        <div class="btn-group mb-2 d-block d-sm-none">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addReserveModal"><i class="mdi mdi-plus"></i> Add Reserve</button>
+        </div>
+      {% elif user["type"] == 2 %}
+        <div class="btn-group mb-2 d-block d-sm-none">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editLabModal"><i class="mdi mdi-pencil"></i> Edit Lab Status</button>
+        </div>
+      {% elif user["type"] == 0 %}
+        <div class="btn-group mb-2 d-block d-sm-none">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="mdi mdi-pencil"></i> Add User</button>
+        </div>
+        <div class="btn-group mb-2 d-block d-sm-none">
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addToolModal"><i class="mdi mdi-flask-empty-plus"></i> Add Tool</button>
+        </div>
+        <div class="btn-group mb-2 d-block d-sm-none">
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addWorkingTimeModal"><i class="mdi mdi-calendar-plus"></i> Add Working Time</button>
+        </div>
+      {% endif %}
+
+        <div class="modal fade" id="addReserveModal" tabindex="-1" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add Reserve</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                <div class="mb-4">
+                  <select class="form-select mb-3" id="subjectName" aria-label="Default select example">
+                    <option selected="" hidden>Subject Name</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="physics">Physics</option>
+                    <option value="biology">Biology</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <select class="form-select mb-3" id="labName" aria-label="Default select example">
+                    <option selected="" hidden>Lab Name</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="physics">Physics</option>
+                    <option value="biology">Biology</option>
+                  </select>
+                </div>
+                
+                <div class="input-group mb-3"> <span class="input-group-text">Subject Title</span>
+                  <input type="text" id="subjectTitle" class="form-control" placeholder="Enter Subject Title">
+                </div>
+
+                <div class="mb-3">
+                  <select class="form-select mb-3" id="class" aria-label="Default select example">
+                    <option selected="" hidden>Class</option>
+                    <option value="5th">5th</option>
+                    <option value="6th">6th</option>
+                    <option value="7th">7th</option>
+                    <option value="8th">8th</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="11th">11th</option>
+                    <option value="12th">12th</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <select class="form-select mb-3" id="term" aria-label="Default select example">
+                    <option selected="" hidden>Term</option>
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <select class="form-select mb-3" id="date" aria-label="Default select example">
+                    <option selected="" hidden>Select Date</option>
+                    {% for wti in wt %}
+                      {% if wt[wti]['status'] == 1 %}
+                        <option value="{{ wt[wti]['wfrom'] }} / {{ wt[wti]['wfrom'] }}">{{ wt[wti]["wfrom"] }} / {{ wt[wti]["wfrom"] }}</option>
+                      {% else %}
+                        <option value="{{ wt[wti]['wfrom'] }} / {{ wt[wti]['wfrom'] }}" disabled> (occupied) {{ wt[wti]["wfrom"] }} / {{ wt[wti]["wfrom"] }}</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="mb-3 text-center">
+                  {% for tool in tools %}
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input tool" type="checkbox" id="{{ tools[tool]['name'] }}" value="option1">
+                      <label class="form-check-label" for="tool-{{ tool }}">{{ tools[tool]["name"] }}</label>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>  
+              <div class="modal-footer text-center align-items-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="createReserve">Create Reserve</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="editLabModal" tabindex="-1" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Lab Status</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+
+                <div class="mb-3">
+                  <select class="form-select mb-3" id="editLabDate" aria-label="Default select example">
+                    <option selected="" hidden>Select Date</option>
+                    {% for wti in wt %}
+                      {% if wt[wti]['status'] == 0 %}
+                        <option value="{{ wt[wti]['wfrom'] }} / {{ wt[wti]['wto'] }}">(occupied) {{ wt[wti]["wfrom"] }} / {{ wt[wti]["wto"] }}</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                </div>
+                
+              </div>  
+              <div class="modal-footer text-center align-items-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="editLab">Change Status</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                
+                <div class="mb-3">
+                  <div class="input-group mb-3"> <span class="input-group-text">Username</span>
+                    <input type="text" id="addUserUsername" class="form-control" placeholder="Enter Username">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="input-group mb-3"> <span class="input-group-text">Password</span>
+                    <input type="password" id="addUserPassword" class="form-control" placeholder="Enter Password">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="input-group mb-3"> <span class="input-group-text">Email</span>
+                    <input type="text" id="addUserEmail" class="form-control" placeholder="Enter Email">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="input-group mb-3"> <span class="input-group-text">Phone</span>
+                    <input type="text" id="addUserPhone" class="form-control" placeholder="Enter Phone">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="input-group mb-3"> <span class="input-group-text">Address</span>
+                    <input type="text" id="addUserAddress" class="form-control" placeholder="Enter Address">
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <select class="form-select mb-3" id="addUserType" aria-label="Default select example">
+                    <option selected="" hidden>User Type</option>
+                      <option value="0">Admin</option>
+                      <option value="1">Teacher</option>
+                      <option value="2">Technician</option>
+                  </select>
+                </div>
+                
+              </div>  
+              <div class="modal-footer text-center align-items-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="addUser">Add User</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="addToolModal" tabindex="-1" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add Tool</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                
+                <div class="mb-3">
+                  <div class="input-group mb-3"> <span class="input-group-text">Tool Name</span>
+                    <input type="text" id="addToolName" class="form-control" placeholder="Enter Tool Name">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="input-group mb-3"> <span class="input-group-text">Count</span>
+                    <input type="text" id="addToolCount" class="form-control" placeholder="Enter Tool Count">
+                  </div>
+                </div>
+                
+              </div>  
+              <div class="modal-footer text-center align-items-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="addTool">Add Tool</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="addWorkingTimeModal" tabindex="-1" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add Working Time</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                
+                <div class="mb-3">
+                  <div class="input-group mb-3"> <span class="input-group-text">Time Start</span>
+                    <input type="text" id="addWTStart" class="form-control date-time flatpickr-input" readonly="readonly">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="input-group mb-3"> <span class="input-group-text">Time End</span>
+                    <input type="text" id="addWTEnd" class="form-control date-time flatpickr-input" readonly="readonly">
+                  </div>
+                </div>
+                
+              </div>  
+              <div class="modal-footer text-center align-items-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="addWT">Add Working Time</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+				<!--end breadcrumb-->
+        <div class="row">
+          <div class="col-12">
+            <h6 class="mb-0 mt-2 text-uppercase">Reserves Table</h6>
+            <hr>
+            <div class="card rounded-12">
+              {% if reserves %}
+                <div class="card-body table-responsive">
+                  <table class="table mb-0 table-hover">
+                    <thead>
+                      <tr>
+                        {% if user["type"] != 1 %}
+                          <th scope="col">Teacher</th>
+                        {% endif %}
+                        <th scope="col">Subject Title</th>
+                        <th scope="col">Subject Name</th>
+                        <th scope="col">Lab Name</th>
+                        <th scope="col">Class</th>
+                        <th scope="col">Term</th>
+                        <th scope="col">Tools</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date</th>
+                        {% if user["type"] != 0 %}
+                          <th scope="col"></th>
+                        {% endif %}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for reserve in reserves %}
+                        <tr>
+                          {% if user["type"] != 1 %}
+                            <td>{{ reserves[reserve]["teacher"] }}</td>
+                          {% endif %}
+                          <td>{{ reserves[reserve]["subject_title"] }}</td>
+                          <td>{{ reserves[reserve]["subject_name"] }}</td>
+                          <td>{{ reserves[reserve]["lab_name"] }}</td>
+                          <td>{{ reserves[reserve]["class"] }}</td>
+                          <td>{{ reserves[reserve]["term"] }} {{ reserves[reserve]["year"] }}</td>
+                          <td>
+                            <select class="form-select mb-3" id="subjectName" aria-label="Default select example">
+                              <option selected="" hidden>View Tools</option>
+                              {% for tool in reserves[reserve]["tools"]  %}
+                                <option disabled value="{{ tool }}">{{ tool }}</option>
+                              {% endfor %}
+                            </select>
+                          </td>
+                          <td>{{ reserves[reserve]["status"] }}</td>
+                          <td>{{ reserves[reserve]["reserve_date"] }}</td>
+                          {% if user["type"] != 0 %}
+                            <td><button class="btn btn-light mx-1" data-bs-toggle="modal" data-bs-target="#editModal-{{reserve}}"><i class="mdi mdi-grease-pencil"></i></button></td>
+                          {% endif %}
+                        </tr>
+
+                        <div class="modal fade" id="editModal-{{reserve}}" tabindex="-1" aria-hidden="true" style="display: none;">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title">Edit Reserve</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body text-center">
+                                {% if user["type"] == 1 %}
+                                  <div class="mb-3">
+                                    <select class="form-select mb-3" id="editReserveDate-{{ reserve }}" aria-label="Default select example">
+                                      <option selected="" hidden>Select Date</option>
+                                      {% for wti in wt %}
+                                        {% if wt[wti]['status'] == 1 %}
+                                          <option value="{{ wt[wti]['wfrom'] }} / {{ wt[wti]['wto'] }}">{{ wt[wti]["wfrom"] }} / {{ wt[wti]["wto"] }}</option>
+                                        {% else %}
+                                          <option value="{{ wt[wti]['wfrom'] }} / {{ wt[wti]['wto'] }}" disabled> (occupied) {{ wt[wti]["wfrom"] }} / {{ wt[wti]["wto"] }}</option>
+                                        {% endif %}
+                                      {% endfor %}
+                                    </select>
+                                  </div>
+                                {% elif user["type"] == 2 %}
+                                  <div class="input-group mb-3"> <span class="input-group-text">Status</span>
+                                    <input type="text" id="editReserveStatus-{{ reserve }}" class="form-control" placeholder="Enter Reserve Status" value="{{ reserves[reserve]['status'] }}">
+                                  </div>
+                                {% endif %}
+                              </div>  
+                              <div class="modal-footer text-center align-items-center">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary editReserve" onclick="editReserve(`{{ reserve }}`)">Edit Reserve</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              {% else %}
+                <div class="card-body text-center">
+                  <h5>There are no reserves, Add some using the button above.</h5>
+                </div>
+              {% endif %}
+            </div>
+				  </div>
+				</div>
+        {% if user["type"] == 0 %}
+          <div class="row">
+            <div class="col-12">
+              <h6 class="mb-0 mt-2 text-uppercase">Users Table</h6>
+              <hr>
+              <div class="card rounded-12">
+                {% if users %}
+                  <div class="card-body table-responsive">
+                    <table class="table mb-0 table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Username</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Joined</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for user in users %}
+                          <tr>
+                            <td>{{ users[user]["username"] }}</td>
+                            <td>
+                              {% if users[user]["type"] == 0 %}
+                                Admin
+                              {% elif users[user]["type"] == 1 %}
+                                Teacher
+                              {% elif users[user]["type"] == 2 %}
+                                Technician
+                              {% endif %}
+                            </td>
+                            <td>{{ users[user]["date"] }}</td>
+                            {% if users[user]["username"] == "admin" %}
+                              <td><button type="button" class="btn btn-danger" disabled onclick="window.location = `/delete/user/{{ user }}`"><i class="mdi mdi-delete"></i></button></td>
+                            {% else %}
+                              <td><button type="button" class="btn btn-danger" onclick="window.location = `/delete/user/{{ user }}`"><i class="mdi mdi-delete"></i></button></td>
+                            {% endif %}
+                          </tr>
+
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                {% else %}
+                  <div class="card-body text-center">
+                    <h5>There are no users, Add some using the button above.</h5>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <h6 class="mb-0 mt-2 text-uppercase">Tools Table</h6>
+              <hr>
+              <div class="card rounded-12">
+                {% if tools %}
+                  <div class="card-body table-responsive">
+                    <table class="table mb-0 table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Name</th>
+                          <th scope="col">Count</th>
+                          <th scope="col">Added</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for tool in tools %}
+                          <tr>
+                            <td>{{ tools[tool]["name"] }}</td>
+                            <td>{{ tools[tool]["count"] }}</td>
+                            <td>{{ tools[tool]["date"] }}</td>
+                            <td><button type="button" class="btn btn-danger" onclick="window.location = `/delete/tool/{{ tool }}`"><i class="mdi mdi-delete"></i></button></td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                {% else %}
+                  <div class="card-body text-center">
+                    <h5>There are no tools, Add some using the button above.</h5>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <h6 class="mb-0 mt-2 text-uppercase">Working Time Table</h6>
+              <hr>
+              <div class="card rounded-12">
+                {% if wt %}
+                  <div class="card-body table-responsive">
+                    <table class="table mb-0 table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Start Time</th>
+                          <th scope="col">End Time</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for wti in wt %}
+                          <tr>
+                            <td>{{ wt[wti]["wfrom"] }}</td>
+                            <td>{{ wt[wti]["wto"] }}</td>
+                            <td><button type="button" class="btn btn-danger" onclick="window.location = `/delete/wt/{{ wti }}`"><i class="mdi mdi-delete"></i></button></td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                {% else %}
+                  <div class="card-body text-center">
+                    <h5>There are no working time, Add some using the button above.</h5>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+    </div>
+  </main>
+  <!--end main wrapper-->
+
+  <!--start primary menu offcanvas-->
+  <div class="offcanvas offcanvas-start w-260" data-bs-scroll="true" tabindex="-1" id="offcanvasPrimaryMenu">
+    <div class="offcanvas-header border-bottom h-70">
+      <img src="assets/images/logo1.png" width="160" alt="">
+      <a href="javascript:;" class="primaery-menu-close" data-bs-dismiss="offcanvas">
+        <i class="material-icons-outlined">close</i>
+      </a>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="sidebar-nav">
+        <ul class="metismenu" id="sidenav">
+          <!-- <li>
+            <a href="javascript:;" class="has-arrow">
+              <div class="parent-icon"><i class="material-icons-outlined">home</i>
+              </div>
+              <div class="menu-title">Dashboard</div>
+            </a>
+            <ul>
+              <li><a href="index-2.html"><i class="material-icons-outlined">arrow_right</i>eCommerce</a>
+              </li>
+              <li><a href="index2.html"><i class="material-icons-outlined">arrow_right</i>Alternate</a>
+              </li>
+            </ul>
+          </li> -->
+          <li>
+            <a href="/dashboard">
+              <div class="parent-icon"><i class="material-icons-outlined">home</i>
+              <div class="menu-title">Home</div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="offcanvas-footer p-3 border-top h-70">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="DarkMode">
+        <label class="form-check-label" for="DarkMode">Dark Mode</label>
+      </div>
+    </div>
+    
+  </div>
+  <!--end primary menu offcanvas-->
+
+
+  <!--start user details offcanvas-->
+  <div class="offcanvas offcanvas-start w-260" data-bs-scroll="true" tabindex="-1" id="offcanvasUserDetails">
+    <div class="offcanvas-body">
+      <div class="user-wrapper">
+        <div class="text-center p-3 bg-light rounded">
+          <img src="{{ url_for('static', filename='assets/images/profile.png') }}" class="rounded-circle p-1 shadow mb-3" width="120" height="120"
+            alt="">
+          <h5 class="user-name mb-0 fw-bold">{{ user["username"] }}</h5>
+          <p class="mb-0">
+            {% if user["type"] == 0 %}
+              Admin
+            {% elif user["type"] == 1 %}
+              Teacher
+            {% elif user["type"] == 2 %}
+              Technician
+            {% endif %}<br>
+            {{ user["email"] }}<br>
+            {{ user["phone"] }}<br>
+            {{ user["address"] }}
+          </p>
+        </div>
+        <div class="list-group list-group-flush mt-3 profil-menu fw-bold">
+          <a href="/"
+            class="list-group-item list-group-item-action d-flex align-items-center gap-2 border-top"><i
+              class="material-icons-outlined">person_outline</i>Dashboard</a>
+          {% if user["type"] == 1 %}
+              <a href="https://padlet.com/salmalab67_/padlet-vzeow7hbk01bl23"
+                class="list-group-item list-group-item-action d-flex align-items-center gap-2 border-bottom" target="_blank"><i
+                  class="mdi mdi-file-document me-2"></i> Lab Tutorial</a>
+          {% elif user["type"] == 2 %}
+              <a href="/excel-link"
+                class="list-group-item list-group-item-action d-flex align-items-center gap-2 border-bottom" target="_blank"><i
+                  class="mdi mdi-file-excel me-2"></i> Excel Link</a>
+          {% endif %}
+          <a href="/logout"
+            class="list-group-item list-group-item-action d-flex align-items-center gap-2 border-bottom"><i
+              class="material-icons-outlined">power_settings_new</i>Logout</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="offcanvas-footer p-3 border-top">
+      <div class="text-center">
+        <button type="button" class="btn d-flex align-items-center gap-2" data-bs-dismiss="offcanvas"><i
+            class="material-icons-outlined">close</i><span>Close Sidebar</span></button>
+      </div>
+    </div>
+  </div>
+  <!--end user details offcanvas-->
+
+
+  <!--bootstrap js-->
+  <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+
+  <!--plugins-->
+  <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+  <!--plugins-->
+  <script src="{{ url_for('static', filename='assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/plugins/metismenu/metisMenu.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/plugins/apexchart/apexcharts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/index.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/plugins/peity/jquery.peity.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/plugins/notifications/js/lobibox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/notifications/js/notifications.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/notifications/js/notification-custom-script.js') }}"></script>
+  <script>
+    $(".data-attributes span").peity("donut")
+  </script>
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script>
+		
+		$(".datepicker").flatpickr();
+
+		$(".time-picker").flatpickr({
+				enableTime: true,
+				noCalendar: true,
+				dateFormat: "Y-m-d H:i",
+			});
+
+		$(".date-time").flatpickr({
+				enableTime: true,
+				dateFormat: "Y-m-d H:i",
+		});
+
+		$(".date-format").flatpickr({
+			altInput: true,
+			altFormat: "F j, Y",
+			dateFormat: "Y-m-d",
+		});
+
+		$(".date-range").flatpickr({
+			mode: "range",
+			altInput: true,
+			altFormat: "F j, Y",
+			dateFormat: "Y-m-d",
+		});
+
+		$(".date-inline").flatpickr({
+			inline: true,
+			altInput: true,
+			altFormat: "F j, Y",
+			dateFormat: "Y-m-d",
+		});
+
+    function editReserve(reserveID){
+      ln = Lobibox.notify('info', {
+        pauseDelayOnHover: true,
+        continueDelayOnInactiveTab: false,
+        position: 'top center',
+        icon: 'bi bi-info-circle',
+        size: 'mini',
+        rounded: true,
+        showClass: 'zoomIn',
+        hideClass: 'zoomOut',
+        msg: 'Editing reserve, please wait ...'
+      });
+      
+      var form_data = new FormData();
+      try {
+        form_data.append("editReserveDate", document.querySelector(`#editReserveDate-${reserveID}`).value);
+      } catch (error) {
+        form_data.append("editReserveDate", "");
+      }
+      try {
+        form_data.append("editReserveStatus", document.querySelector(`#editReserveStatus-${reserveID}`).value);
+      } catch (error) {
+        form_data.append("editReserveStatus", "");
+      }
+      form_data.append("editReserveID", reserveID);
+      $.ajax({
+          type: 'POST',
+          url: '/edit/reserve',
+          dataType: "text",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+              ln.remove()
+              if (data.startsWith("error")) {
+                Lobibox.notify('error', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-x-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+              }
+              else if (data.startsWith("success")) {
+                $('#addReserveModal').modal('hide');
+                Lobibox.notify('success', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-check2-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+                  setTimeout(
+                    function() 
+                    {
+                        window.location = "/"
+                    }, 1500
+                  );
+              }
+          },
+      });
+    }
+    document.querySelector("#editLab").addEventListener("click", () => {
+      ln = Lobibox.notify('info', {
+        pauseDelayOnHover: true,
+        continueDelayOnInactiveTab: false,
+        position: 'top center',
+        icon: 'bi bi-info-circle',
+        size: 'mini',
+        rounded: true,
+        showClass: 'zoomIn',
+        hideClass: 'zoomOut',
+        msg: 'Changing lab status, please wait ...'
+      });
+      var form_data = new FormData();
+      form_data.append("editLabDate", document.querySelector("#editLabDate").value);
+      $.ajax({
+          type: 'POST',
+          url: '/edit/labStatus',
+          dataType: "text",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+              ln.remove()
+              if (data.startsWith("error")) {
+                Lobibox.notify('error', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-x-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+              }
+              else if (data.startsWith("success")) {
+                $('#addReserveModal').modal('hide');
+                Lobibox.notify('success', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-check2-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+                  setTimeout(
+                    function() 
+                    {
+                        window.location = "/"
+                    }, 1500
+                  );
+              }
+          },
+      });
+    });
+    document.querySelector("#createReserve").addEventListener("click", () => {
+      ln = Lobibox.notify('info', {
+        pauseDelayOnHover: true,
+        continueDelayOnInactiveTab: false,
+        position: 'top center',
+        icon: 'bi bi-info-circle',
+        size: 'mini',
+        rounded: true,
+        showClass: 'zoomIn',
+        hideClass: 'zoomOut',
+        msg: 'Creating reserve, please wait ...'
+      });
+      var tools = ""
+      var toolsChecked = document.querySelectorAll('.tool:checked')
+      if (toolsChecked)
+      toolsChecked.forEach(tool => {
+        tools += `${tool.id}|`
+      })
+      var form_data = new FormData();
+      form_data.append("subjectName", document.querySelector("#subjectName").value);
+      form_data.append("labName", document.querySelector("#labName").value);
+      form_data.append("subjectTitle", document.querySelector("#subjectTitle").value);
+      form_data.append("class", document.querySelector("#class").value);
+      form_data.append("term", document.querySelector("#term").value);
+      form_data.append("date", document.querySelector("#date").value);
+      form_data.append("tools", tools);
+      $.ajax({
+          type: 'POST',
+          url: '/add-reserve',
+          dataType: "text",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+              ln.remove()
+              if (data.startsWith("error")) {
+                Lobibox.notify('error', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-x-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+              }
+              else if (data.startsWith("success")) {
+                $('#addReserveModal').modal('hide');
+                Lobibox.notify('success', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-check2-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+                  setTimeout(
+                    function() 
+                    {
+                        window.location = "/"
+                    }, 1500
+                  );
+              }
+          },
+      });
+    });
+    document.querySelector("#addUser").addEventListener("click", () => {
+      ln = Lobibox.notify('info', {
+        pauseDelayOnHover: true,
+        continueDelayOnInactiveTab: false,
+        position: 'top center',
+        icon: 'bi bi-info-circle',
+        size: 'mini',
+        rounded: true,
+        showClass: 'zoomIn',
+        hideClass: 'zoomOut',
+        msg: 'Creating user, please wait ...'
+      });
+      var tools = ""
+      var toolsChecked = document.querySelectorAll('.tool:checked')
+      if (toolsChecked)
+      toolsChecked.forEach(tool => {
+        tools += `${tool.id}|`
+      })
+      var form_data = new FormData();
+      form_data.append("username", document.querySelector("#addUserUsername").value);
+      form_data.append("password", document.querySelector("#addUserPassword").value);
+      form_data.append("email", document.querySelector("#addUserEmail").value);
+      form_data.append("phone", document.querySelector("#addUserPhone").value);
+      form_data.append("address", document.querySelector("#addUserAddress").value);
+      form_data.append("type", document.querySelector("#addUserType").value);
+      $.ajax({
+          type: 'POST',
+          url: '/admin/addUser',
+          dataType: "text",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+              ln.remove()
+              if (data.startsWith("error")) {
+                Lobibox.notify('error', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-x-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+              }
+              else if (data.startsWith("success")) {
+                $('#addReserveModal').modal('hide');
+                Lobibox.notify('success', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-check2-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+                  setTimeout(
+                    function() 
+                    {
+                        window.location = "/"
+                    }, 1500
+                  );
+              }
+          },
+      });
+    });
+    document.querySelector("#addTool").addEventListener("click", () => {
+      ln = Lobibox.notify('info', {
+        pauseDelayOnHover: true,
+        continueDelayOnInactiveTab: false,
+        position: 'top center',
+        icon: 'bi bi-info-circle',
+        size: 'mini',
+        rounded: true,
+        showClass: 'zoomIn',
+        hideClass: 'zoomOut',
+        msg: 'Creating tool, please wait ...'
+      });
+      var tools = ""
+      var toolsChecked = document.querySelectorAll('.tool:checked')
+      if (toolsChecked)
+      toolsChecked.forEach(tool => {
+        tools += `${tool.id}|`
+      })
+      var form_data = new FormData();
+      form_data.append("name", document.querySelector("#addToolName").value);
+      form_data.append("count", document.querySelector("#addToolCount").value);
+      $.ajax({
+          type: 'POST',
+          url: '/admin/addTool',
+          dataType: "text",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+              ln.remove()
+              if (data.startsWith("error")) {
+                Lobibox.notify('error', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-x-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+              }
+              else if (data.startsWith("success")) {
+                $('#addReserveModal').modal('hide');
+                Lobibox.notify('success', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-check2-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+                  setTimeout(
+                    function() 
+                    {
+                        window.location = "/"
+                    }, 1500
+                  );
+              }
+          },
+      });
+    });
+    document.querySelector("#addWT").addEventListener("click", () => {
+      ln = Lobibox.notify('info', {
+        pauseDelayOnHover: true,
+        continueDelayOnInactiveTab: false,
+        position: 'top center',
+        icon: 'bi bi-info-circle',
+        size: 'mini',
+        rounded: true,
+        showClass: 'zoomIn',
+        hideClass: 'zoomOut',
+        msg: 'Creating working time, please wait ...'
+      });
+      var tools = ""
+      var toolsChecked = document.querySelectorAll('.tool:checked')
+      if (toolsChecked)
+      toolsChecked.forEach(tool => {
+        tools += `${tool.id}|`
+      })
+      var form_data = new FormData();
+      form_data.append("start", document.querySelector("#addWTStart").value);
+      form_data.append("end", document.querySelector("#addWTEnd").value);
+      $.ajax({
+          type: 'POST',
+          url: '/admin/addWT',
+          dataType: "text",
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+              ln.remove()
+              if (data.startsWith("error")) {
+                Lobibox.notify('error', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-x-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+              }
+              else if (data.startsWith("success")) {
+                $('#addReserveModal').modal('hide');
+                Lobibox.notify('success', {
+                  pauseDelayOnHover: true,
+                  continueDelayOnInactiveTab: false,
+                  position: 'top center',
+                  icon: 'bi bi-check2-circle',
+                  size: 'mini',
+                  rounded: true,
+                  msg: data.split('|')[1]
+                });
+                  setTimeout(
+                    function() 
+                    {
+                        window.location = "/"
+                    }, 1500
+                  );
+              }
+          },
+      });
+    });
+
+	</script>
+
+</body>
+
+
+<!-- Mirrored from codervent.com/matoxi/demo/offcanvas-menu/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Dec 2023 22:21:26 GMT -->
+</html>
